@@ -34,7 +34,7 @@ const Hero = () => {
           className="w-full h-full object-cover"
           style={{ opacity: 0.6 }}
         >
-          <source src="https://cdn.pixabay.com/video/2020/08/14/47215-450995786_large.mp4" type="video/mp4" />
+          <source src="https://cdn.pixabay.com/video/2020/08/14/47217-450995795_large.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
         {/* Overlay más claro para que el video se vea mejor */}

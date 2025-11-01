@@ -109,45 +109,91 @@ const RedesSociales = () => {
               </motion.div>
             </motion.div>
 
-            {/* Lado Derecho - Facebook Post Embed */}
+            {/* Lado Derecho - iPhone Mockup con Facebook */}
             <motion.div variants={itemVariants} className="lg:h-full flex items-center justify-center w-full">
-              <div className="bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden shadow-2xl w-full max-w-md">
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3 sm:p-4 flex items-center gap-2 sm:gap-3 shadow-lg">
-                  <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                  <h3 className="text-white font-semibold text-base sm:text-lg">Última Publicación</h3>
-                </div>
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.05, y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/20 blur-3xl rounded-full -z-10" />
                 
-                {/* Facebook Page Plugin */}
-                <div className="p-0 w-full overflow-x-auto">
-                  <div className="w-full" style={{ minWidth: '280px' }}>
-                    <iframe
-                      src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpcstylecol&tabs=timeline&width=340&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                      width="100%"
-                      height="600"
-                      style={{ border: 'none', overflow: 'hidden', width: '100%', maxWidth: '100%', minWidth: '280px' }}
-                      scrolling="no"
-                      frameBorder="0"
-                      allowFullScreen={true}
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                      title="Facebook PCStyle"
-                      className="w-full"
-                    />
+                {/* iPhone Frame */}
+                <div className="relative w-full max-w-[320px] sm:max-w-[360px] mx-auto">
+                  {/* iPhone Outer Frame */}
+                  <div className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-800 rounded-[3rem] p-2 shadow-2xl">
+                    {/* iPhone Screen Border */}
+                    <div className="bg-black rounded-[2.5rem] p-2 shadow-inner">
+                      {/* Notch */}
+                      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-[120px] h-7 bg-black rounded-full z-20" />
+                      
+                      {/* Screen Content */}
+                      <div className="bg-white rounded-[2rem] overflow-hidden relative">
+                        {/* Status Bar */}
+                        <div className="bg-white pt-8 pb-2 px-6 flex items-center justify-between text-black text-xs font-semibold">
+                          <span>9:41</span>
+                          <div className="flex items-center gap-1">
+                            <div className="flex gap-0.5">
+                              <div className="w-1 h-1 bg-black rounded-full" />
+                              <div className="w-1 h-1 bg-black rounded-full" />
+                              <div className="w-1 h-1 bg-black/30 rounded-full" />
+                            </div>
+                            <div className="w-6 h-3 border border-black rounded-sm">
+                              <div className="w-[70%] h-full bg-green-500 rounded-sm" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Facebook Widget */}
+                        <div className="bg-gray-50 min-h-[530px] overflow-hidden">
+                          {/* Facebook Header */}
+                          <div className="bg-blue-600 px-3 py-2 flex items-center justify-between shadow-sm">
+                            <div className="flex items-center gap-2">
+                              <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                              <span className="text-white font-semibold text-xs sm:text-sm">Facebook</span>
+                            </div>
+                          </div>
+
+                          {/* Facebook Content Area */}
+                          <div className="p-0 h-[480px] sm:h-[500px] overflow-hidden">
+                            <iframe
+                              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpcstylecol&tabs=timeline&width=320&height=480&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+                              width="100%"
+                              height="480"
+                              style={{ border: 'none', overflow: 'hidden' }}
+                              scrolling="no"
+                              frameBorder="0"
+                              allowFullScreen={true}
+                              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                              title="Facebook PCStyle"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Link para ver más */}
-                <div className="p-3 sm:p-4 border-t border-slate-700 text-center">
+                {/* Call to Action */}
+                <motion.div
+                  className="text-center mt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5 }}
+                >
                   <motion.a
                     href="https://www.facebook.com/pcstylecol/?locale=es_LA"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 text-xs sm:text-sm font-semibold transition-colors"
+                    className="inline-block text-blue-400 hover:text-blue-300 text-sm font-semibold transition-colors"
                     whileHover={{ scale: 1.05 }}
                   >
-                    Ver más publicaciones →
+                    Ver más en Facebook →
                   </motion.a>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </motion.div>

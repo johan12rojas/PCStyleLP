@@ -14,7 +14,7 @@ const Portafolio = () => {
       detailedDescription: 'Ofrecemos servicio completo de ensamblaje de computadoras personalizadas. Nuestro equipo profesional selecciona los mejores componentes para cada necesidad específica, garantizando compatibilidad y máximo rendimiento. Incluye instalación del sistema operativo, drivers actualizados y pruebas de estabilidad completas.',
       category: 'Ensamblaje',
       color: 'from-blue-500 to-blue-700',
-      image: '/IMG/ensamblaje.jpg',
+      image: '/IMG/ensamblaje.webp',
       collage: false
     },
     {
@@ -34,7 +34,7 @@ const Portafolio = () => {
       detailedDescription: 'Service de configuración integral para equipos nuevos o usados. Incluye instalación de Windows, configuración de drivers, optimización del rendimiento, eliminación de software innecesario y configuración de seguridad básica. Tu equipo funcionará al máximo desde el primer día.',
       category: 'Configuración',
       color: 'from-green-500 to-green-700',
-      images: ['/IMG/conf1.jpg', '/IMG/conf2.jpg'],
+      images: ['/IMG/conf1.webp', '/IMG/conf2.webp'],
       collage: true
     },
     {
@@ -44,7 +44,7 @@ const Portafolio = () => {
       detailedDescription: 'Instalamos y configuramos todo el software que necesitas. Desde suites ofimáticas (Office, LibreOffice) hasta software especializado de diseño, desarrollo o contabilidad. Activamos licencias, configuramos preferencias iniciales y dejamos todo listo para usar. Servicio remoto o a domicilio.',
       category: 'Instalación',
       color: 'from-orange-500 to-orange-700',
-      image: '/IMG/instalacion_programas.jpg',
+      image: '/IMG/instalacion_programas.webp',
       collage: false
     },
     {
@@ -54,7 +54,7 @@ const Portafolio = () => {
       detailedDescription: 'Servicio especializado en reparación de placas base. Diagnosticamos el problema mediante pruebas de componentes, identificación de daños físicos y análisis electrónico. Reparamos daños comunes como capacitores hinchados, circuitos dañados y problemas de conectividad. Ahorra dinero reparando en lugar de reemplazar.',
       category: 'Reparación',
       color: 'from-red-500 to-red-700',
-      image: '/IMG/reparacion_mother.jpg',
+      image: '/IMG/reparacion_mother.webp',
       collage: false
     },
     {
@@ -64,7 +64,7 @@ const Portafolio = () => {
       detailedDescription: 'Rescatamos tus datos importantes cuando todo parece perdido. Servicio especializado de recuperación de información en discos duros, SSDs, USB y tarjetas de memoria. Manejo desde casos simples (archivos borrados accidentalmente) hasta situaciones complejas (discos dañados físicamente). Máxima confidencialidad garantizada.',
       category: 'Recuperación',
       color: 'from-pink-500 to-pink-700',
-      image: '/IMG/datos.jpg',
+      image: '/IMG/datos.webp',
       collage: false
     },
   ]
@@ -229,6 +229,7 @@ const Portafolio = () => {
                           src={img}
                           alt={`${selectedProject.title} ${idx + 1}`}
                           className="w-full h-64 object-cover"
+                          loading="lazy"
                         />
                       ))}
                     </div>
@@ -237,6 +238,7 @@ const Portafolio = () => {
                       src={selectedProject.image}
                       alt={selectedProject.title}
                       className="w-full h-96 object-cover rounded-xl"
+                      loading="lazy"
                     />
                   )}
                 </div>
