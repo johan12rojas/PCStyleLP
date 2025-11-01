@@ -128,16 +128,35 @@ npx http-server
 
 ### Producción
 
-1. **Hosting Estático**: 
+#### 🚀 Despliegue en Vercel (Recomendado)
+
+La forma más rápida de desplegar es usando Vercel:
+
+1. **Opción 1: Conectar GitHub a Vercel**
+   - Ve a [vercel.com](https://vercel.com) e inicia sesión con GitHub
+   - Haz clic en "New Project"
+   - Importa el repositorio `johan12rojas/PCStyleLP`
+   - Vercel detectará automáticamente que es un proyecto Vite
+   - Haz clic en "Deploy"
+   - ¡Listo! Tu sitio estará en línea en segundos
+
+2. **Opción 2: CLI de Vercel**
+   ```bash
+   npm i -g vercel
+   vercel login
+   vercel
+   ```
+
+3. **Otras opciones de Hosting Estático**: 
    - Netlify
-   - Vercel
    - GitHub Pages
    - AWS S3 + CloudFront
 
-2. **Configuración del Servidor**:
-   - Configura headers de seguridad en tu servidor web (Apache/Nginx)
-   - Asegúrate de usar HTTPS
-   - Configura CSP headers en el servidor además de los meta tags
+#### Configuración del Servidor
+
+- Configura headers de seguridad en tu servidor web (Apache/Nginx)
+- Asegúrate de usar HTTPS
+- Configura CSP headers en el servidor además de los meta tags
 
 ### Headers de Seguridad en el Servidor
 
