@@ -135,23 +135,21 @@ const Portafolio = () => {
                 {proyecto.collage ? (
                   <div className="grid grid-cols-2 gap-1 h-full">
                     {proyecto.images.map((img, idx) => (
-                      <motion.img
+                      <img
                         key={idx}
                         src={img}
                         alt={`${proyecto.title} ${idx + 1}`}
                         className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.15 }}
-                        transition={{ duration: 0.5, ease: 'easeOut' }}
+                        loading="lazy"
                       />
                     ))}
                   </div>
                 ) : (
-                  <motion.img
+                  <img
                     src={proyecto.image}
                     alt={proyecto.title}
                     className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.5, ease: 'easeOut' }}
+                    loading="lazy"
                   />
                 )}
                 

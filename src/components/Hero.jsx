@@ -170,7 +170,7 @@ const Hero = () => {
               </div>
               
               {/* Floating particles alrededor del logo */}
-              {[...Array(8)].map((_, i) => (
+              {[...Array(6)].map((_, i) => (
                 <motion.div
                   key={i}
                   className="absolute w-2 h-2 bg-blue-400 rounded-full"

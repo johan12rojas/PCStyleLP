@@ -1,8 +1,19 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const TechBackground = () => {
-  // Crear líneas de circuito animadas
-  const lines = Array.from({ length: 20 }, (_, i) => ({
+  // Detectar si estamos en móvil para reducir animaciones
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+  // Crear líneas de circuito animadas (reducido para mejor rendimiento)
+  const lineCount = isMobile ? 5 : 10
+  const lines = Array.from({ length: lineCount }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
@@ -11,7 +22,7 @@ const TechBackground = () => {
   }))
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
       {/* Líneas de circuito animadas */}
       <svg className="absolute inset-0 w-full h-full" style={{ filter: 'blur(1px)' }}>
         {lines.map((line) => (
@@ -46,8 +57,8 @@ const TechBackground = () => {
         </defs>
       </svg>
 
-      {/* Partículas flotantes */}
-      {Array.from({ length: 15 }, (_, i) => (
+      {/* Partículas flotantes (reducido para mejor rendimiento) */}
+      {Array.from({ length: isMobile ? 5 : 8 }, (_, i) => (
         <motion.div
           key={`particle-${i}`}
           className="absolute w-1 h-1 bg-blue-400 rounded-full"
@@ -122,4 +133,5 @@ const TechBackground = () => {
 }
 
 export default TechBackground
+
 

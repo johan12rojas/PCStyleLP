@@ -71,7 +71,7 @@ const RedesSociales = () => {
               >
                 {/* Instagram Button */}
                 <motion.a
-                  href="https://www.instagram.com/rodri_rq7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  href="https://www.instagram.com/pcstylecol/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 hover:from-pink-600 hover:via-purple-600 hover:to-pink-700 text-white px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 shadow-lg shadow-pink-500/50 flex items-center justify-center gap-2 overflow-hidden whitespace-nowrap"

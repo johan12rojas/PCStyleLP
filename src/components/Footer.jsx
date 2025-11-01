@@ -5,7 +5,7 @@ import TechBackground from './TechBackground'
 const Footer = () => {
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/pcstylecol/?locale=es_LA', name: 'Facebook' },
-    { icon: Instagram, href: 'https://www.instagram.com/rodri_rq7?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', name: 'Instagram' },
+    { icon: Instagram, href: 'https://www.instagram.com/pcstylecol/', name: 'Instagram' },
     { icon: Twitter, href: '#', name: 'Twitter' },
     { icon: Linkedin, href: '#', name: 'LinkedIn' },
   ]
