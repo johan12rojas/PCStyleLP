@@ -1,0 +1,69 @@
+# Configuración de seguridad para Apache
+# Copia este archivo a tu directorio raíz del servidor web
+
+# Habilitar HTTPS (descomenta y ajusta según tu dominio)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Headers de Seguridad
+<IfModule mod_headers.c>
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; media-src 'self' https://cdn.pixabay.com; frame-src 'self'; connect-src 'self';"
+    
+    # Prevenir MIME-sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Protección contra clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Protección XSS (para navegadores antiguos)
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy (antes Feature Policy)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Strict Transport Security (HSTS) - Solo activar si tienes HTTPS
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# Prevenir acceso a archivos ocultos
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteger archivos sensibles
+<FilesMatch "\.(env|log|ini|conf|bak)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Compresión GZIP para mejor rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Caché de archivos estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Forzar UTF-8
+AddDefaultCharset UTF-8
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+</IfModule>
+

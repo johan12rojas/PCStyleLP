@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-slate-900 text-white overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-blue-600 bg-clip-text text-transparent;
+  }
+  
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20;
+  }
+}
+
